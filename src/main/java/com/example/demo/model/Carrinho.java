@@ -25,7 +25,7 @@ import javax.persistence.OneToOne;
 public class Carrinho {
     private Long id;
     private List<ItemCarrinho> itens;
-    private Date exp_time;
+    private Date expTime;
     
     private Cliente cliente;
 
@@ -49,12 +49,12 @@ public class Carrinho {
         this.itens = itens;
     }
     
-    public Date getExp_time() {
-        return exp_time;
+    public Date getExpTime() {
+        return expTime;
     }
 
-    public void setExp_time(Date exp_time) {
-        this.exp_time = exp_time;
+    public void setExpTime(Date expTime) {
+        this.expTime = expTime;
     }
 
     @OneToOne

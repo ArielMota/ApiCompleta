@@ -24,7 +24,7 @@ import javax.persistence.OneToOne;
 public class ItemVenda {
     private Long id;
     private double custo;
-    private double quantidade;
+    private Long quantidade;
     private double valor;
     private Produto produto;
     
@@ -48,11 +48,11 @@ public class ItemVenda {
         this.custo = custo;
     }
 
-    public double getQuantidade() {
+    public Long getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(double quantidade) {
+    public void setQuantidade(Long quantidade) {
         this.quantidade = quantidade;
     }
 

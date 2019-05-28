@@ -19,18 +19,18 @@ import javax.persistence.OneToMany;
  * @author Raffael
  */
 @Entity
-class Categoria {
-    private int id;
+public class Categoria {
+    private Long id;
     private String nome;
     private List<Produto> produto;
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -5,6 +5,7 @@
  */
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,7 @@ import javax.persistence.OneToOne;
  * @author Raffael
  */
 @Entity
-class Imagem {
+public class Imagem {
     private Long id;
     private String path;
     private Produto produto;
@@ -32,6 +33,7 @@ class Imagem {
         this.id = id;
     }
 
+    @JsonIgnore
     public String getPath() {
         return path;
     }

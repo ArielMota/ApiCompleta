@@ -29,7 +29,7 @@ public class Produto {
     private String nome;
     private List<Categoria> categoria;
     private double preco;
-    private int quantidade;
+    private Long quantidade;
     private List<Imagem> imagens;
     
     @Id
@@ -67,11 +67,11 @@ public class Produto {
         this.preco = preco;
     }
 
-    public int getQuantidade() {
+    public Long getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(Long quantidade) {
         this.quantidade = quantidade;
     }
     
