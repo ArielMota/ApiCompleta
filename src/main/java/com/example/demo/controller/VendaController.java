@@ -38,7 +38,7 @@ public class VendaController {
     @Autowired
     ProdutoService produtoService;
     
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity cadastrarVenda(@RequestHeader(value = "Authorization") String autorizacao) {
         
         Carrinho car = carrinhoService.retornaTodoCarrinho(autorizacao);
@@ -75,8 +75,7 @@ public class VendaController {
         
     }
     
-    @RequestMapping(method = RequestMethod.DELETE,
-            value = "/{id}")
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
     ResponseEntity removerVenda(@PathVariable Long id) {
         
         vendaService.excluirVenda(id);
@@ -89,8 +88,7 @@ public class VendaController {
         System.out.println("edita");
     }
     
-    @RequestMapping(method = RequestMethod.GET,
-            value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.GET, value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<Venda> mostraVenda(@PathVariable Long id) {
         
         Venda ven;

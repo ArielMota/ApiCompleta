@@ -39,11 +39,10 @@ public class ClienteService {
         return clienteRepository.findById(id).get();
     }
 
-    /*
     public java.util.List<Cliente> buscaTodos() {
-        return clienteRepository.buscaEOrdenaPorID();
+        return clienteRepository.findAll();
     }
-     */
+    
 
     public Cliente autenticarCliente(Cliente cli) {
         return clienteRepository.findByEmailAndSenha(cli.getEmail(), cli.getSenha());

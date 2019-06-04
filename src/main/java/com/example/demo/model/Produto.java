@@ -33,7 +33,7 @@ public class Produto {
     private List<Imagem> imagens;
     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
@@ -41,7 +41,7 @@ public class Produto {
     public void setId(Long id) {
         this.id = id;
     }
-
+ 
     @JsonProperty(access = Access.WRITE_ONLY)
     public double getCusto() {
         return custo;
@@ -86,8 +86,8 @@ public class Produto {
         this.imagens = imagens;
     }
 
-    @ManyToMany
     @JsonIgnore
+    @ManyToMany
     public List<Categoria> getCategoria() {
         return categoria;
     }

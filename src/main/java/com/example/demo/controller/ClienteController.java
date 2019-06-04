@@ -9,6 +9,7 @@ import com.example.demo.service.ClienteService;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import java.util.Date;
+import java.util.List;
 import java.util.NoSuchElementException;
 import javax.xml.ws.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,6 +91,20 @@ public class ClienteController {
         Cliente cli;
         try {
             cli = clienteService.buscaCliente(id);
+
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity(cli, HttpStatus.OK);
+    }
+    
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<List <Cliente>> mostraTodosProdutos(){
+    
+            List <Cliente> cli;
+        try {
+            cli = clienteService.buscaTodos();
 
         } catch (NoSuchElementException e) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);

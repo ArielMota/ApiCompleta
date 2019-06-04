@@ -5,6 +5,7 @@
  */
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Date;
 import java.util.List;
 import org.hibernate.annotations.CascadeType;
@@ -32,7 +33,7 @@ public class Venda {
     private List<ItemVenda> itensVendas;
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
@@ -57,6 +58,7 @@ public class Venda {
         this.valor = valor;
     }
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "cliente_id", unique = false)
     public Cliente getCliente() {
@@ -67,6 +69,7 @@ public class Venda {
         this.cliente = cliente;
     }
 
+    @JsonIgnore
     @OneToMany
     @JoinColumn(name = "venda_id")
     public List<ItemVenda> getItensVendas() {

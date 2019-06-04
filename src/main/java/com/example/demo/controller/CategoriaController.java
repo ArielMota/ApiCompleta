@@ -48,8 +48,7 @@ public class CategoriaController {
         System.out.println("edita");
     }
 
-    @RequestMapping(method = RequestMethod.GET,
-            value = "/categoria/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.GET, value = "/categoria/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity <List<Produto>> mostraCategoria(@PathVariable Long id) {
         
         Categoria cat = new Categoria();

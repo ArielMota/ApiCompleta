@@ -71,7 +71,7 @@ public class CarrinhoService {
         try {
 
             Claims c = Jwts.parser()
-                    .setSigningKey(key)
+                  .setSigningKey(key)
                     .parseClaimsJws(somentetoken)
                     .getBody();
 

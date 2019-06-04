@@ -31,7 +31,7 @@ public class ItemVenda {
     private Venda venda;
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
@@ -64,6 +64,7 @@ public class ItemVenda {
         this.valor = valor;
     }
 
+    @JsonIgnore
     @ManyToOne
     public Venda getVenda() {
         return venda;
@@ -73,6 +74,7 @@ public class ItemVenda {
         this.venda = venda;
     }
     
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name="produto_id")
     public Produto getProduto() {

@@ -47,10 +47,8 @@ public class CarrinhoController {
     @Autowired
     ProdutoService produtoService;
 
-    @RequestMapping(method = RequestMethod.POST,
-            consumes = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity adicionarProdutoCarrinho(@RequestBody Produto prod,
-            @RequestHeader(value = "Authorization") String autorizacao) {
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity adicionarProdutoCarrinho(@RequestBody Produto prod, @RequestHeader(value = "Authorization") String autorizacao) {
 
         Carrinho car = new Carrinho();
         car.setId(carrinhoService.retornaIdCarrinho(autorizacao));
@@ -91,9 +89,10 @@ public class CarrinhoController {
 
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity mostrarCarrinho(@RequestHeader(value = "Authorization") String autorizacao) {
-        Carrinho car = carrinhoRepository.findById(carrinhoService.retornaIdCarrinho(autorizacao)).get();
+        Carrinho car;
+        car = carrinhoService.retornaTodoCarrinho(autorizacao);
 
         if (car == null) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
@@ -103,16 +102,14 @@ public class CarrinhoController {
 
     }
 
-    @RequestMapping(method = RequestMethod.DELETE,
-            value = "/{id}")
-    ResponseEntity removerProdutoCarrinho(@RequestHeader(value = "Authorization") String autorizacao,
-            @PathVariable Long id) {
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
+    ResponseEntity removerProdutoCarrinho(@RequestHeader(value = "Authorization") String autorizacao, @PathVariable Long id) {
 
         Carrinho car = carrinhoRepository.findById(carrinhoService.retornaIdCarrinho(autorizacao)).get();
 
         Produto p = new Produto();
         p.setId(id);
-        
+
         ItemCarrinho it = itemCarrinhoService.buscaItemCarrinho(car, p);
         itemCarrinhoService.excluirItemCarrinho(it.getId());
 

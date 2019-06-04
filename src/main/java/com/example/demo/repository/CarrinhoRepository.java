@@ -11,9 +11,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
   @author Alcídia Cristina
  */
 public interface CarrinhoRepository extends JpaRepository<Carrinho, Long> {
+    
     public Carrinho findByCliente(Cliente cli);
-    
-    
     
     
 }

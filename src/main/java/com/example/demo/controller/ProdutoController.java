@@ -25,8 +25,7 @@ public class ProdutoController {
     @Autowired
     ProdutoService produtoService;
 
-    @RequestMapping(method = RequestMethod.POST,value = "/admin/produto",
-            consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.POST,value = "/admin/produto", consumes = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity cadastrarProduto(@RequestBody Produto pro) {
 
      if(produtoService.cadastrarProduto(pro) == null){
@@ -51,8 +50,7 @@ public class ProdutoController {
         System.out.println("edita");
     }
 
-    @RequestMapping(method = RequestMethod.GET,
-            value = "/produto/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.GET, value = "/produto/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<Produto> mostraProduto(@PathVariable Long id) {
         
         Produto pro;
@@ -66,7 +64,7 @@ public class ProdutoController {
         return new ResponseEntity(pro, HttpStatus.OK);
     }
     
-    @RequestMapping(method = RequestMethod.GET, value = "/produto/", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.GET, value = "/produto", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<List <Produto>> mostraTodosProdutos(){
     
             List <Produto> pro;
