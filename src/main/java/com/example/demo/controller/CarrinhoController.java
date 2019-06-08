@@ -63,7 +63,7 @@ public class CarrinhoController {
 
             ItemCarrinho itemCar = new ItemCarrinho();
 
-            itemCar.setCarrinho(car);
+            itemCar.setCarrinho(car); 
             itemCar.setProduto(prod);
             itemCar.setQuantidade(prod.getQuantidade());
 

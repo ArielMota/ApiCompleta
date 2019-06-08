@@ -70,7 +70,7 @@ public class Venda {
     }
 
     @JsonIgnore
-    @OneToMany
+    @OneToMany(cascade = {javax.persistence.CascadeType.ALL})
     @JoinColumn(name = "venda_id")
     public List<ItemVenda> getItensVendas() {
         return itensVendas;

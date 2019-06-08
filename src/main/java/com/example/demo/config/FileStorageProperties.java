@@ -1,12 +1,7 @@
-
-package com.example.demo.service;
+package com.example.demo.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-/*
- 
-  @author Alcídia Cristina
- */
 @ConfigurationProperties(prefix = "file")
 public class FileStorageProperties {
 
@@ -14,11 +9,9 @@ public class FileStorageProperties {
 
     public String getUploadDir() {
         return uploadDir;
-
     }
 
-public void setUploadDir (String UploadDir){
-    this.uploadDir=UploadDir;
-    
-}
+    public void setUploadDir(String uploadDir) {
+        this.uploadDir = uploadDir;
+    }
 }
