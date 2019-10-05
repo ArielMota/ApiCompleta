@@ -31,6 +31,7 @@ public class Produto {
     private double preco;
     private Long quantidade;
     private List<Imagem> imagens;
+    private String sexo;
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -95,6 +96,15 @@ public class Produto {
     public void setCategoria(List<Categoria> categoria) {
         this.categoria = categoria;
     }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+    
     
     
     
